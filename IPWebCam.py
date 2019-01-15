@@ -10,16 +10,19 @@ import cv2
 import time
 import numpy as np
 import pygame
+import requests as r
 
 pygame.init()
 
 class IPWEBCAM(object):
-    def __init__(self,root_url='192.168.1.103:8080'):
-        self.url = 'http://'+root_url+'/shot.jpg'
+    def __init__(self,root_url='192.168.1.103:8080', width=400, height=400):
+        self.url = 'http://'+root_url
+        self.width = width
+        self.height = height
 
     def get_image(self):
         # Get our image from the phone
-        imgResp = urllib.urlopen(self.url)
+        imgResp = urllib.urlopen(self.url + '/shot.jpg')
 
         # Convert our image to a numpy array so that we can work with it
         imgNp = np.array(bytearray(imgResp.read()),dtype=np.uint8)
@@ -50,4 +53,28 @@ class IPWEBCAM(object):
         # create the pygame image from the string, size and color space
         img = pygame.image.frombuffer(img,shape,color_space)
 
+        # resize the image
+        img = pygame.transform.scale(img, (self.width, self.height))
+
         return img
+
+    def swap_camera(self, option="on"):
+        return r.get(self.url+"/settings/ffc?set={}".format(option))
+
+    def overlay(self, option="off"):
+        return r.get(self.url+"/settings/overlay?set={}".format(option))
+
+    def led(self, option="off"):
+        if option =="on":
+            return r.get(self.url+"/enabletorch")
+        return r.get(self.url+"/disabletorch")
+
+    def set_quality(self,option=50):
+        if option > 100:
+            option = 100
+        if option < 0:
+            option = 0
+        return r.get(self.url +"/settings/quality?set={}".format(option))
+
+    def zoom(self, option):
+        pass
