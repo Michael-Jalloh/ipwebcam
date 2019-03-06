@@ -15,7 +15,7 @@ import requests as r
 pygame.init()
 
 class IPWEBCAM(object):
-    def __init__(self,root_url='192.168.1.103:8080', width=400, height=400):
+    def __init__(self,root_url='192.168.43.1:8080', width=400, height=400):
         self.url = 'http://'+root_url
         self.width = width
         self.height = height

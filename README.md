@@ -1,6 +1,5 @@
 This is a simple script that helps in accessing the image from the Android App
-IP Webcam and to be able to display it in
-pygame
+IP Webcam and to be able to display it in pygame
 
 
 # Requirements
