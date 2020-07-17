@@ -9,10 +9,6 @@ IP Webcam and to be able to display it in pygame
 
 # Usage
 
-```
-python test.py
-```
-
 ```python
 import sys
 import pygame

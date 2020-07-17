@@ -1,0 +1,10 @@
+README.md
+setup.cfg
+setup.py
+ipwebcam/__init__.py
+ipwebcam/ipwebcam.py
+ipwebcam.egg-info/PKG-INFO
+ipwebcam.egg-info/SOURCES.txt
+ipwebcam.egg-info/dependency_links.txt
+ipwebcam.egg-info/requires.txt
+ipwebcam.egg-info/top_level.txt

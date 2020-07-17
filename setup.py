@@ -1,14 +1,22 @@
-from distutils.core import setup
+from setuptools import setup
+from os import path
+this_directory = path.abspath(path.dirname(__file__))
+long_description = ""
+with open(path.join(this_directory, 'README.md')) as f:
+    long_description = f.read()
+
 setup(
     name= "ipwebcam",
     packages= ["ipwebcam"],
-    version= "0.1",
+    version= "0.2",
     license= "MIT",
     description= "This is a simple module that helps in accessing the image from the Android App IPWebcam and to be able to display it in pygame",
     author= "Michael Jalloh",
+    long_description=long_description,
+    long_description_content_type= "text/markdown",
     author_email= "michaeljalloh19@gmail.com",
     url= "https://github.com/Michael-Jalloh/ipwebcam",
-    download_url = "https://github.com/Michael-Jalloh/ipwebcam/archive/v_01.tar.gz",
+    download_url = "https://github.com/Michael-Jalloh/ipwebcam/archive/v_02.tar.gz",
     keywords= ["ipwebcam","pygame", "opencv", "cv3","cv2"],
     install_requires=[
         "pygame",
