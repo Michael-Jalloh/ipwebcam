@@ -1,0 +1,1 @@
+from ipwebcam.ipwebcam import IPWEBCAM
