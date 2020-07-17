@@ -8,7 +8,7 @@ setup(
     author= "Michael Jalloh",
     author_email= "michaeljalloh19@gmail.com",
     url= "https://github.com/Michael-Jalloh/ipwebcam",
-    download_url = "https://github.com/Michael-Jalloh/ipwebcam",
+    download_url = "https://github.com/Michael-Jalloh/ipwebcam/archive/v_01.tar.gz",
     keywords= ["ipwebcam","pygame", "opencv", "cv3","cv2"],
     install_requires=[
         "pygame",
