@@ -14,11 +14,24 @@ import requests as r
 
 pygame.init()
 
+
+
 class IPWEBCAM(object):
     def __init__(self,root_url='192.168.2.109:8080', width=400, height=400):
         self.url = 'http://'+root_url
         self.width = width
         self.height = height
+        self.resolutions = {
+                "0" : "1920x1080",
+                "1" : "1280x720",
+                "2" : "960x720",
+                "3" : "720x480",
+                "4" : "640x480",
+                "5" : "352x288",
+                "6" : "320x240",
+                "7" : "256x144",
+                "8" : "176x144"
+                }
 
     def get_image(self):
         # Get our image from the phone
@@ -99,6 +112,14 @@ class IPWEBCAM(object):
         elif orientation == 3:
             return r.get(f"{self.url}/settings/orientation?set=upsidedown_portait")
 
-    def zoom(self, option):
-        """ TODO """
-        pass
+    def set_resolution(self, option: str = "0"):
+        if option in self.resolutions:
+            return r.get(f"{self.url}/settings/video_size?set={self.resolutions[option]}")
+
+    def zoom(self, option: int = 0):
+        if option < 0:
+            option = 0
+        if option > 100:
+            option = 100
+        return r.get(f"{self.url}/ptz?zoom={option}")
+        

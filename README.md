@@ -1,5 +1,5 @@
 This is a simple script that helps in accessing the image from the Android App
-IP Webcam and to be able to display it in pygame
+IPWebcam and to be able to display it in pygame
 
 
 # Requirements
@@ -33,5 +33,11 @@ while run:
   clock.tick(0)
 ```
 
-# TODO
-Add support for Image resolution
+# Features
+- Camera Swap
+- Overlay control
+- Flash light control
+- Set quality
+- Set orientation
+- Set resolution
+- Zoom
